@@ -1,6 +1,7 @@
 ---
 title: Stone Representation Theorem
 pubDate: 31-01-2013
+tags: ["algebra", "set theory"]
 ---
 
 A _Boolean algebra_ is a set $B$ together with two binary operations $\vee, \wedge$, a unary operation $\neg$ and two distinctive elements $0, 1 \in B$, satisfying the following axioms.
