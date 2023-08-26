@@ -1,6 +1,6 @@
 ---
 title: Stone Representation Theorem
-pubDate: 31-01-2013
+pubDate: 2013-01-31
 tags: ["algebra", "set theory"]
 ---
 
