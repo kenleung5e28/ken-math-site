@@ -1,0 +1,18 @@
+---
+interface Props {
+  title: string;
+  slug: string;
+  date: Date;
+  tags: string[];
+}
+
+const { title, date, tags, slug } = Astro.props;
+---
+
+<li>
+  <h3><a href={`/posts/${slug}`}>{title}</a></h3>
+  <div>
+    <span>{date.toDateString()}</span>
+    {tags.map((tag) => <a href={`/tags/${tag}`}>{tag}</a>)}
+  </div>
+</li>
