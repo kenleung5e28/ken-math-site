@@ -1,7 +1,16 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
+import Post from '../components/Post.astro';
+
+const allPosts = (await getCollection('posts')).filter((post) => !post.data.draft);
 ---
 
-<Layout title="Ken Math Site">
-  <h1>Hello!</h1>
+<Layout title="Ken Leung | Math & Programming">
+  <h1>Posts</h1>
+  {
+    allPosts.map((post) => (
+      <Post title={post.data.title} slug={post.slug} date={post.data.pubDate} tags={post.data.tags} />
+    ))
+  }
 </Layout>
