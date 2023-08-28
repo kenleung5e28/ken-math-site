@@ -1,0 +1,19 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Layout from './Layout.astro';
+
+interface Props {
+  frontmatter: CollectionEntry<'posts'>['data'];
+}
+
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={frontmatter.title}>
+  <h1>{frontmatter.title}</h1>
+  <div>
+    <span>{frontmatter.pubDate.toDateString()}</span>
+    {frontmatter.tags.map((tag) => <a href={`/tags/${tag}`}>{tag}</a>)}
+  </div>
+  <slot />
+</Layout>
