@@ -1,0 +1,24 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { CollectionEntry, getCollection } from 'astro:content';
+import MarkdownLayout from '../../layouts/MarkdownLayout.astro';
+
+interface Props {
+  post: CollectionEntry<'posts'>;
+}
+
+export const getStaticPaths = (async () => {
+  const allPosts = (await getCollection('posts')).filter((post) => !post.data.draft);
+  return allPosts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}) satisfies GetStaticPaths;
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<MarkdownLayout frontmatter={post.data}>
+  <Content />
+</MarkdownLayout>
