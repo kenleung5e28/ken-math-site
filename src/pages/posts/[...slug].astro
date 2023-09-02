@@ -1,6 +1,7 @@
 ---
 import type { GetStaticPaths } from 'astro';
-import { CollectionEntry, getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
 import MarkdownLayout from '../../layouts/MarkdownLayout.astro';
 
 interface Props {
